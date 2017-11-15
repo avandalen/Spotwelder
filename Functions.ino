@@ -94,7 +94,8 @@ void selectContinuously()
 
 void TFTinit()
 { tft.begin();
-  tft.setOrientation(eeprom.readInt(orientation)); 
+  //tft.setOrientation(eeprom.readInt(orientation_addr)); 
+  tft.setOrientation(orientation); // v6.2
   tft.setFont(Terminal12x16);
 }
 
@@ -113,8 +114,11 @@ void printValuesToSerial()
 void setOrientation()
 { pollAll(); // works without too
   if(upButton.on() && downButton.on()) 
-  { if(eeprom.readInt(orientation)==0) eeprom.writeInt(orientation, 2); 
-    else eeprom.writeInt(orientation, 0); 
+  { //if(eeprom.readInt(orientation_addr)==0) eeprom.writeInt(orientation_addr, 2); 
+    //else eeprom.writeInt(orientation_addr, 0);
+    if(orientation==0) orientation=2; // v6.2
+    else orientation=0;
+    eeprom.write();
   }
 }
 
