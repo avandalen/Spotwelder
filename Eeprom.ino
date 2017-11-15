@@ -1,5 +1,5 @@
 const unsigned maxWrites = 100; 
-const unsigned initValue = 12342; // take another value for new initialization
+const unsigned initValue = 12; // take another value for new initialization
 
 void Eeprom::init()
 { setMemPool(0, EEPROMSizeATmega328);

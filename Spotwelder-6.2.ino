@@ -1,4 +1,4 @@
-bool sinMaxDisabled = 1; // for test without transformer, must be 0
+bool sinMaxDisabled = 0; // for test without transformer. For production set to 0
 
 /* 
 Note: use the latest Arduino software and install the libraries.
@@ -51,7 +51,7 @@ Eeprom eeprom;
 
 bool TFTused;  
 bool continuously;
-unsigned orientation_addr, orientation; // v6.2
+unsigned orientation_addr, orientation=0; // v6.2
 
 void setup() 
 { Serial.begin(9600);
